@@ -1,18 +1,30 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
-import { AppRoutingModule } from './app-routing.module';
+import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { OmdbService } from './services/omdb.service';
+import { HttpModule } from '@angular/http';
+import { StorageServiceModule } from 'ngx-webstorage-service';
+import { StorageService } from './services/storage.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    routingComponents,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    FormsModule,
+    HttpModule,
+    AppRoutingModule,
+    StorageServiceModule
   ],
-  providers: [],
+  providers: [
+    OmdbService,
+    StorageService
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

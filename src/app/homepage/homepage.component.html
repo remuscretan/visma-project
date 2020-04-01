@@ -1,0 +1,22 @@
+<div class="container">
+    <div *ngIf="showFavoritesMovies">
+        <br>
+        <h3 class="text-center text-warning">YOUR FAVORITE MOVIES</h3>
+        <br>
+        <div class="row justify-content-center">
+            <ul *ngFor="let item of favoritesMovies[0]">
+                <li><img (click)="imageClickedFromFavHandler(item.id)" [src]="item.poster_path" [title]="item.title">
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <br>
+    <h3 class="text-center text-warning">HERE ARE THE MOST POPULAR MOVIES</h3>
+    <br>
+    <div class="row justify-content-center">
+        <ul *ngFor="let item of results[0]">
+            <li><img (click)="imageClickedHandler(item.id)" [src]="item.poster_path" [title]="item.title"></li>
+        </ul>
+    </div>
+</div>
