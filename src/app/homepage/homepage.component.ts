@@ -9,8 +9,8 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['./homepage.component.scss']
 })
 export class HomepageComponent implements OnInit {
-  imageUrl = 'http://image.tmdb.org/t/p/w300';
-  results = [];
+  imageUrl = 'http://image.tmdb.org/t/p/w200';
+  movies = [];
   favoritesMovies = [];
   showFavoritesMovies = false;
 
@@ -32,8 +32,8 @@ export class HomepageComponent implements OnInit {
 
   private getMovies() {
     this.omdbService.getMostPopularMovies().subscribe(response => {
-      this.results.push(response.results);
-      this.results[0].forEach(element => {
+      this.movies.push(response.results);
+      this.movies[0].forEach(element => {
         element.poster_path = this.imageUrl + element.poster_path;
       });
     })

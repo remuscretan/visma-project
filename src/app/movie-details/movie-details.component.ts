@@ -9,9 +9,9 @@ import { StorageService } from '../services/storage.service';
   styleUrls: ['./movie-details.component.scss']
 })
 export class MovieDetailsComponent implements OnInit {
-  imageUrl = 'http://image.tmdb.org/t/p/w400';
+  imageUrl = 'http://image.tmdb.org/t/p/w342';
   movieId: any;
-  responseObj: any = {};
+  movieObj: any = {};
   addedToFav = false;
 
 
@@ -40,18 +40,18 @@ export class MovieDetailsComponent implements OnInit {
   private getMovieDetails() {
     this.omdbService.getMovieDetails(this.movieId).subscribe(response => {
       response.poster_path = this.imageUrl + response.poster_path;
-      this.responseObj = response;
+      this.movieObj = response;
     });
   }
 
   public addToFavorites() {
     if (this.storageService.getStorage('movie')) {
       const moviesList = this.storageService.getStorage('movie');
-      moviesList.push(this.responseObj);
+      moviesList.push(this.movieObj);
       this.storageService.setStorage('movie', moviesList);
     } else {
       const moviesList = [];
-      moviesList.push(this.responseObj);
+      moviesList.push(this.movieObj);
       this.storageService.setStorage('movie', moviesList);
     }
     this.addedToFav = true;
@@ -61,7 +61,8 @@ export class MovieDetailsComponent implements OnInit {
     const movies = this.storageService.getStorage('movie');
 
     for (let i = 0; i < movies.length; i++) {
-      if (JSON.stringify(movies[i]) === JSON.stringify(this.responseObj)) {
+      // if (JSON.stringify(movies[i]) === JSON.stringify(this.responseObj)) {
+      if (this.movieObj.id === movies[i].id) {
         movies.splice(i, 1);
       }
     }

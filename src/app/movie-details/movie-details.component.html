@@ -1,26 +1,24 @@
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
 <div class="container">
     <div class="row">
-        <div class="col">
-            <img [src]="responseObj.poster_path">
+        <div class="col mt-4">
+            <img [src]="movieObj.poster_path">
         </div>
-        <div class="col">
-            <h3 class="text-center text-warning text-uppercase">{{responseObj.original_title}}
-                ({{responseObj.release_date | date:'yyyy'}})</h3>
+        <div class="col mt-2">
+            <h3 class="text-center text-warning text-uppercase">{{movieObj.original_title}}
+                ({{movieObj.release_date | date:'yyyy'}})</h3>
             <div class="row">
                 <button *ngIf="!addedToFav" class="btn btn-sm btn-success" (click)="addToFavorites()">Add to
                     favorites</button>
                 <button *ngIf="addedToFav" class="btn btn-sm btn-danger" (click)="removeFromFavorites()">Remove from
                     favorites</button>
-                <ul class="text-white inline-block" *ngFor="let item of responseObj.genres">
+                <ul class="text-white inline-block" *ngFor="let item of movieObj.genres">
                     <li class="mt-2">{{item.name}}</li>
                 </ul>
             </div>
             <br>
-            <p class="font-italic">{{responseObj.tagline}}</p>
+            <p class="font-italic">{{movieObj.tagline}}</p>
             <h5 class="text-white">Overview</h5>
-            <p class="text-secondary">{{responseObj.overview}}</p>
+            <p class="text-secondary">{{movieObj.overview}}</p>
         </div>
     </div>
 </div>

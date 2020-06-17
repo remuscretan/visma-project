@@ -13,6 +13,10 @@ export class StorageService {
     }
 
     getStorage(key) {
-        return this.data[key]= this.storage.get(key);
-       }
+        if (this.storage.get(key)) {
+            return this.data[key] = this.storage.get(key);
+        } else {
+            return [];
+        }
+    }
 }

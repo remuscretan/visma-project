@@ -1,5 +1,26 @@
 div > ul {
     list-style-type: none;
-    padding: 0; 
+    padding: 0.5rem; 
     margin-bottom: 0rem;
+}
+
+img {
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+
+.overflow {
+    color: white;
+    // color: rgba(32,230,238);
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    width: 12rem;
+    cursor: pointer;
+}
+
+.year {
+    color: grey;
+    font-size: 12px;
+    padding: 0rem;
 }

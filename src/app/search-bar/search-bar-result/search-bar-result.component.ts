@@ -10,7 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class SearchBarResultComponent implements OnInit {
   imageUrl = 'http://image.tmdb.org/t/p/w300';
   movieTitle: string;
-  resultObj = [];
+  moviesList = [];
 
   constructor(private omdbService: OmdbService,
     private activatedRoute: ActivatedRoute,
@@ -31,7 +31,7 @@ export class SearchBarResultComponent implements OnInit {
     this.omdbService.getSearchedMovie(this.movieTitle).subscribe(response => {
       response.results.forEach(element => {
         element.poster_path = this.imageUrl + element.poster_path;
-        this.resultObj.push(element);
+        this.moviesList.push(element);
       });
     });
   }

@@ -5,14 +5,14 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule, routingComponents } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { OmdbService } from './services/omdb.service';
-import { HttpModule } from '@angular/http';
 import { StorageServiceModule } from 'ngx-webstorage-service';
 import { StorageService } from './services/storage.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    routingComponents,
+    routingComponents
   ],
   imports: [
     BrowserModule,
